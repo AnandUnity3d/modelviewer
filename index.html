@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Design Viewer</title>
+<!-- Import the component -->
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Use it like any other HTML element -->
+
+<div class="model-viewer-container">
+  <!-- <h2>your custom designed model</h2> -->
+  <model-viewer src="models/kitchen/kitchen.glb"
+              ios-src="models/kitchen/kitchen.usdz"
+              alt="A 3D model"
+              ar
+              auto-rotate
+              camera-controls>
+  </model-viewer>
+</div>
+</body>
+</html>
