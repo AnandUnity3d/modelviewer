@@ -5,7 +5,32 @@
 <!-- Import the component -->
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
 <link rel="stylesheet" href="styles.css">
+<script>
+  
+
+  async function downloadPosterToBlob() {
+    const modelViewer = document.getElementById("viewer");
+    const blob = await modelViewer.toBlob({ idealAspect: false });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "modelViewer_toBlob.png";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function downloadPosterToDataURL() {
+    const modelViewer = document.getElementById("viewer");
+    const url = modelViewer.toDataURL();
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "modelViewer_toDataURL.png";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+</script>
 </head>
+
 <body>
 <!-- Use it like any other HTML element -->
 
@@ -14,10 +39,22 @@
   <model-viewer src="models/kitchen/kitchen.glb"
               ios-src="models/kitchen/kitchen.usdz"
               alt="A 3D model"
+              id="viewer"
               ar
+              scale="1 1 1"
               auto-rotate
+              background-color="#000000"
               camera-controls>
   </model-viewer>
+  <span>
+    <button id="downloadPosterToBlob" onclick="downloadPosterToBlob()">
+      Download Poster: toBlob()
+    </button>
+
+    <button id="downloadPosterToDataURL" onclick="downloadPosterToDataURL()">
+      Download Poster: toDataURL()
+    </button>
+  </span>
 </div>
 </body>
 </html>
