@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjust the height to your desired value */
+    height: 100vh; 
+    background-color: #000000;/* Adjust the height to your desired value */
   }
 
   model-viewer {
